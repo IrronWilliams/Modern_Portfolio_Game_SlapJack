@@ -1,0 +1,89 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: darkgreen;
+    
+}
+
+/*writing a wrapper style to create a flex style layout to put cards in column and center them*/
+#wrapper {
+    display: flex;  /*flex places cards in a row. need to put in column*/
+    flex-direction: column;
+    align-items: center;
+}
+
+/*
+15vh (viewport height) means the font size will adjust to 15% of the overall height of the webpage. 
+Meaning size of emoji will adjust based upon screen size.  
+*/
+#opponent-face {
+    font-size: 15vh;
+}
+
+#opponent-deck, #player-deck {
+    height: 21vh;
+}
+
+/*using > * to target immediate children of the opponent-deck and player-deck. basing margins on width of viewport so widths
+will adjust based on screen size */
+#opponent-deck > *{
+    margin-right: 35vw;
+}
+
+#player-deck > *{
+    margin-left: 35vw;
+}
+
+#discard-pile {
+    margin: 4vh 0px;
+}
+/*targeting card class, which appears in 3 divs. will return 3 cards. basing size of cards on height of page 
+so that if browser window changes, the cards will resize properly. */
+.card {
+    background-color: #ffffff;  /*color white*/
+    width: 15vh;
+    height: 21vh;
+    border-radius: 5px; 
+}
+
+/*using radial gradient that morphs colors into each other in a circle pattern. 
+telling CSS to start with a dark blue and morph into a lighter blue as the color moves from center.  */
+.card-back {
+    background: radial-gradient(#1E2E5F, #9198E5); 
+}
+
+/*styling number/image to appear center of card*/
+.card-front {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vh;
+}
+
+.card-art {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/*differentiate the numbers and how they appear on card. pulling number out of flex-box and using position attributes. 
+this puts the number in the top left hand corner of the card. need to tell browser how to position the number. 
+position will be based upon the parent element card-front. the position is absolute to the relative position of the card. 
+the position relative lets CSS know what the baseline is. w/o the position relative on card-front, the card number will 
+appear at the top left of the full screen.  
+*/
+.right-side-up {
+    position: absolute;
+    left: 0.4vh;
+    top: 0.4vh;
+    text-align: center;
+}
+
+.flipped {
+    position: absolute;
+    right: 0.4vh;
+    bottom: 0.4vh;
+    transform: rotate(180deg);  /*moves number to appear flipped*/
+    text-align: center;
+}
