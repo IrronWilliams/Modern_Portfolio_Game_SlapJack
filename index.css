@@ -2,8 +2,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: darkgreen;
-    
+    background-color: darkgreen;    
 }
 
 /*writing a wrapper style to create a flex style layout to put cards in column and center them*/
