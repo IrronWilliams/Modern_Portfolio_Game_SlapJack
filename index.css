@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: darkgreen;    
+    /* font-family: "Segoe UI Symbol"; */
 }
 
 /*writing a wrapper style to create a flex style layout to put cards in column and center them*/
@@ -86,3 +87,4 @@ appear at the top left of the full screen.
     transform: rotate(180deg);  /*moves number to appear flipped*/
     text-align: center;
 }
+
