@@ -95,7 +95,7 @@ and move to the discardCards. then remove the card from the players deck  */
 
 discardCards = []
 
-function playerCard(){
+function playCard(){
     discardCards.push(playerCards[0])  //pushes the top card, 1st element in array to the discardCards array
     playerCards.splice(0, 1)  //removes 1 element at index 0. splices out top card from players deck. avoids duplicating cards
     
@@ -103,7 +103,7 @@ function playerCard(){
     const currentCard = discardCards[discardCards.length-1] //index of discardCards starts at 0. -1 prevents looking outside of range of array
     const currentValue = currentCard.substring(0,1) //returns the 1st element of the string in discardCards. 
     const suit = currentCard.substring(1,2) //returns the 2nd element of the string in discardCards
-    console.log(currentCard, currentValue, suit)
+    console.log(currentCard, currentValue, suit) 
 
     /*displaying/updating the discardCards deck:
     the card has 3 elements (card#, artwork & flipped card#). both of the card#'s have the same class, so can easily 
@@ -141,10 +141,22 @@ function playerCard(){
                 console.error(`No recognizable suit found`);
         }
     }
-    //return currentCard, currentValue, suit
+    
+    //Altering card art.      
+    const cardArt = document.getElementsByClassName(`card-art`)[0]
+    while(cardArt.children[0]) {  //while loop checks for children of cardArt and removes 1st child.
+        cardArt.children[0].remove()
+    }
+    for (let i = 0; i < currentValue; i++) {
+        let suitSymbolContainer = document.createElement(`div`)
+        suitSymbolContainer.textContent = suit  //create div for each symbol and append to card art.
+        cardArt.append(suitSymbolContainer)
+    }
+    
+
 }
 
-playerCard()
+playCard()
 //console.log('PlayerCards', playerCards)
 //console.log('OpponentCards', opponentCards)
 
